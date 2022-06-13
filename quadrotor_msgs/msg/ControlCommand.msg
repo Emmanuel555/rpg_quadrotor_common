@@ -18,16 +18,16 @@ bool armed
 # Time at which this command should be executed
 time expected_execution_time
 
-# Orientation of the body frame with respect to the world frame [-]
+# Orientation of the body frame with respect to the world frame [-] [quaternion]
 geometry_msgs/Quaternion orientation
 
-# Body rates in body frame [rad/s]
+# Body rates in body frame [rad/s] in euler rates
 # Note that in ATTITUDE mode the x-y-bodyrates are only feed forward terms 
 # computed from a reference trajectory
 # Also in ATTITUDE mode, the z-bodyrate has to be from feedback control
 geometry_msgs/Vector3 bodyrates
 
-# Angular accelerations in body frame [rad/s^2]
+# Angular accelerations in body frame [rad/s^2] in euler rates
 geometry_msgs/Vector3 angular_accelerations
 
 # Collective mass normalized thrust [m/s^2]
@@ -36,3 +36,6 @@ float64 collective_thrust
 # Single rotor thrusts [N]
 # These are only considered in the ROTOR_THRUSTS control mode
 float64[] rotor_thrusts
+
+#velocity solution from acados solver 
+geometry_msgs/Vector3 velocity
